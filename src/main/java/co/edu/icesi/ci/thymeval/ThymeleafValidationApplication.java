@@ -10,7 +10,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
-import co.edu.icesi.ci.thymeval.model.User;
+import co.edu.icesi.ci.thymeval.model.UserApp;
 import co.edu.icesi.ci.thymeval.model.UserGender;
 import co.edu.icesi.ci.thymeval.model.UserType;
 import co.edu.icesi.ci.thymeval.service.UserService;
@@ -33,15 +33,17 @@ public class ThymeleafValidationApplication {
 		
 		ConfigurableApplicationContext c = SpringApplication.run(ThymeleafValidationApplication.class, args);
 		UserService u = c.getBean(UserService.class);
-		User user1 = new User();
+		UserApp user1 = new UserApp();
 		Date b = new Date(2323223232L);
 		user1.setName("Juan");
 		user1.setEmail("jc@gmail.com");
 		user1.setGender(UserGender.femenine);
 		user1.setType(UserType.doctor);
 		user1.setBirthDate(convertToLocalDateViaInstant(b));
+		user1.setPassword("{noop}1234");
+		user1.setUsername("user");
 		u.save(user1);
-		User user2 = new User();
+		UserApp user2 = new UserApp();
 		Date a = new Date(2323223232L);
 		user2.setGender(UserGender.femenine);
 		user2.setName("Ana");

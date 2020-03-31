@@ -20,14 +20,14 @@ import lombok.Data;
 
 @Entity
 @Data
-public class User {
+public class UserApp {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private long id;
 	
 	@NotBlank(groups=User1.class)
-	@Size(message="La contraseña debe tener minimo ocho caracteres", min=8, groups = User1.class)
+	@Size(message="La contraseï¿½a debe tener minimo ocho caracteres", min=8, groups = User1.class)
 	private String password;
 	
 	@NotBlank(groups=User1.class)
