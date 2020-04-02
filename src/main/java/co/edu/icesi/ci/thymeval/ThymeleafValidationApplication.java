@@ -60,6 +60,8 @@ public class ThymeleafValidationApplication {
 		user2.setEmail("ana@gmail.com");
 		user2.setType(UserType.patient);
 		user2.setBirthDate(convertToLocalDateViaInstant(a));
+		user2.setUsername("ana");
+		user2.setPassword("{noop}1234");
 		u.save(user2);
 	}
 

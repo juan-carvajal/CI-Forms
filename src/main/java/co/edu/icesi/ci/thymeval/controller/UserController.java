@@ -33,6 +33,12 @@ public class UserController {
 		;
 	}
 	
+	
+	@GetMapping("/")
+	public String home() {
+		return "index"
+;	}
+	
 	@GetMapping("/login")
 	public String login() {
 //		model.addAttribute("user","");
