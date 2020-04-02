@@ -33,8 +33,18 @@ public class ThymeleafValidationApplication {
 		
 		ConfigurableApplicationContext c = SpringApplication.run(ThymeleafValidationApplication.class, args);
 		UserService u = c.getBean(UserService.class);
-		UserApp user1 = new UserApp();
+		UserApp admin = new UserApp();
 		Date b = new Date(2323223232L);
+		admin.setName("admin");
+		admin.setEmail("admin@gmail.com");
+		admin.setGender(UserGender.masculine);
+		admin.setType(UserType.ADMIN);
+		admin.setBirthDate(convertToLocalDateViaInstant(b));
+		admin.setPassword("{noop}admin");
+		admin.setUsername("admin");
+		u.save(admin);
+		UserApp user1 = new UserApp();
+		b = new Date(2323223232L);
 		user1.setName("Juan");
 		user1.setEmail("jc@gmail.com");
 		user1.setGender(UserGender.femenine);

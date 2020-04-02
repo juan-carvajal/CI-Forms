@@ -23,7 +23,7 @@ public class MyCustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		UserApp userApp = userRepository.findByUsername(userName).get();
 		if (userApp != null) {
-			User.UserBuilder builder = User.withUsername(userName).password(userApp.getPassword()).roles("");
+			User.UserBuilder builder = User.withUsername(userName).password(userApp.getPassword()).roles(userApp.getType().toString());
 			
 			return builder.build();
 		} else {
